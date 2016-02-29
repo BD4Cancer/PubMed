@@ -11,7 +11,7 @@
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 library(R.utils)
-requiredPackages <- c("XML","tm","SnowballC","RColorBrewer","ggplot2","NLP",
+requiredPackages <- c("rlist", "RCurl","XML","tm","SnowballC","RColorBrewer","ggplot2","NLP",
                       "wordcloud","biclust","cluster","igraph","fpc")
                       
 #install.packages(requiredPackages,repos="http://cran.r-project.org", dependencies=TRUE)
@@ -20,8 +20,8 @@ requiredPackages <- c("XML","tm","SnowballC","RColorBrewer","ggplot2","NLP",
 lapply(requiredPackages, require, character.only=TRUE)
 
 
-DataDir <- "/home/s_maouche/BD4Cancer/data/PMC"
-ResDir <- "/home/s_maouche/BD4Cancer/results/"
+DataDir <- "../BD4Cancer/data/PMC"
+ResDir <- "../BD4Cancer/results/"
 setwd(DataDir)
 Files <- c(dir(DataDir))
 length(Files)
@@ -55,7 +55,7 @@ for (i in 1:length(Files)) {
     fname   <- file.path(path)
     dir(fname)
     docs <- Corpus(DirSource(fname))
-    PMCcorpus <- mergeLists(PMCcorpus, docs)
+    PMCcorpus <-  merge.list(PMCcorpus, docs, keep.order=TRUE)
 }
 setwd(ResDir)
 save(PMCcorpus, "PMCcorpus.RData")
