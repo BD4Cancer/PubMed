@@ -52,13 +52,12 @@ for (i in 1:length(Files)) {
     path <- paste(DataDir, Files[i], sep="/")
     setwd(path)
     lengthDir <- length(dir(path)) 
-    fname   <- file.path(path)
-    dir(fname)
-    docs <- Corpus(DirSource(fname))
-    PMCcorpus <-  merge.list(PMCcorpus, docs, keep.order=TRUE)
+    dir(path)
+    docs <- Corpus(DirSource(path))
+    PMCcorpus <-  c(PMCcorpus,docs)
 }
 setwd(ResDir)
-save(PMCcorpus, "PMCcorpus.RData")
+save(PMCcorpus, file="PMCcorpus.RData")
 
 
 
