@@ -1,0 +1,16 @@
+source("https://bioconductor.org/biocLite.R")
+biocLite("meshr")
+browseVignettes("meshr")
+
+library(MeSH.db)
+ls("package:MeSH.db")
+columns(MeSH.db)
+keytypes(MeSH.db)
+
+k <- keys(MeSH.db, keytype = "MESHID")
+length(k)
+head(k)
+
+select(MeSH.db, keys = k[1:10], columns = c("MESHID", "MESHTERM"),keytype = "MESHID")
+LEU <- select(MeSH.db, keys = "Leukemia", columns = c("MESHID","MESHTERM", "CATEGORY", "SYNONYM"), keytype = "MESHTERM")
+LEU
