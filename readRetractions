@@ -1,0 +1,16 @@
+# Retraction file Dir
+RetDir <- "C:/Users/Seraya/Desktop/BD4Cancer/ScientificFraud"
+setwd(RetDir)
+dir(RetDir)
+cancerRetraction = read.csv("pubmed_cancer_title_retractionOfPublication.csv")
+cancerRetracted  = read.csv("pubmed_cancer_titleabstract_retractedPublication.csv")
+
+cancerRetraction = read.csv("pubmed_cancerTitleAbstract_noticeNoteTitle.csv")
+cancerRetracted  = read.csv("pubmed_cancerTitleAbstract_noticeNoticeTitle.csv")
+cancerRetraction = read.csv("pubmed_cancerTitleAbstract_noticeStatementTitle.csv")
+cancerRetracted  = read.csv("pubmed_cancerTitleAbstract_withdrawnTitle.csv")
+
+cancerRetraction = read.csv("pubmed_neplasm_mesh_retractedPublication.csv")
+
+cancerRetraction = read.csv("pubmed_oncology_retractedPublication704.csv")
+cancerRetracted  = read.csv("pubmed_oncology_retractionOfPublication36.csv")
